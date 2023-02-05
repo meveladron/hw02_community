@@ -27,6 +27,7 @@ class Group(models.Model):
 
 TEXT_LENGHT: int = 15
 
+
 class Post(models.Model):
     text = models.TextField(
         verbose_name="Описание",

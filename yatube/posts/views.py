@@ -5,6 +5,7 @@ from .models import Group, Post
 
 FILTER_POSTS: int = 10
 
+
 def index(request):
     posts = Post.objects.all()[:FILTER_POSTS]
     context = {
