@@ -47,13 +47,13 @@ class Post(models.Model):
         on_delete=models.SET_NULL,
         blank=True,
         null=True,
-        related_name="posts",
+        related_name='posts',
         verbose_name='Группа публикации',
         help_text='Выберите группу, соотвестсвующую публикации'
     )
 
-    def __str__(self):
-        return self.text[:TEXT_LENGHT]
-
     class Meta:
         ordering = ["-pub_date"]
+
+    def __str__(self):
+        return self.text[:TEXT_LENGHT]
