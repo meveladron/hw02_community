@@ -30,8 +30,8 @@ TEXT_LENGHT: int = 15
 
 class Post(models.Model):
     text = models.TextField(
-        verbose_name="Описание",
-        help_text="Введите текст публикации"
+        verbose_name='Описание',
+        help_text='Введите текст публикации'
     )
     pub_date = models.DateTimeField(
         verbose_name='Дата публикации',
@@ -53,7 +53,7 @@ class Post(models.Model):
     )
 
     class Meta:
-        ordering = ["-pub_date"]
+        ordering = ['-pub_date']
 
     def __str__(self):
         return self.text[:TEXT_LENGHT]
