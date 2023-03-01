@@ -3,17 +3,20 @@
 {% block title %}
   Главная страница проекта Yatube
 {% endblock %}
-
 {% block content %}
-<h1>Последние обновления на сайте</h1>
-{% for post in posts %}
+<div class="container col-lg-11 col-sm-12">
+  <h2>Последние обновления на сайте</h2>
+{% for post in page_obj %}
 <article>
   <ul>
     <li>
-      Автор: {{ post.author.get_full_name }}
+      <p>Автор: {{ post.author.get_full_name }}</p>
     </li>
     <li>
-      Дата публикации: {{ post.pub_date|date:"d E Y" }}
+      <b>Дата публикации:</b> {{ post.pub_date|date:"d E Y" }}
+    </li>
+    <li>
+      <a href="{% url 'posts:profile' post.author.username %}">Все записи аавтора</a>
     </li>
   </ul>
   <p>
@@ -27,4 +30,6 @@
 <hr>
   {% endif %}
   {% endfor %}
+  {% include 'posts/includes/paginator.html' %}
+</div>
   {% endblock %}

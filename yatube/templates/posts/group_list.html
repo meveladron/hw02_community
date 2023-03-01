@@ -3,18 +3,18 @@
 {% block title %}
   Записи выбранной группы
 {% endblock%}
-
 {% block content %}
-<h1>{{ group.title }}</h1>
+<div class="container col-lg-11 col-sm-12">
+<h2>{{ group.title }}</h2>
 <p>{{ group.description | linebreaksbr }}</p>
 {% for post in posts %}
 <article>
   <ul>
     <li>
-      Автор: {{ post.author.get_full_name }}
+      <p>Автор: {{ post.author.get_full_name }}</p>
     </li>
     <li>
-      Дата публикации: {{ post.pub_date|date:"d E Y" }}
+      <b>Дата публикации:</b> {{ post.pub_date|date:"d E Y" }}
     </li>
   </ul>
 <p>
@@ -25,4 +25,6 @@
 <hr>
 {% endif %}
 {% endfor %}
+{% include 'posts/includes/paginator.html' %}
 {% endblock %}
+</div>

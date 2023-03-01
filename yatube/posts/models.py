@@ -18,11 +18,15 @@ class Group(models.Model):
     )
     description = models.TextField(
         verbose_name='Описание',
-        help_text='Введите подробное описание группы',
+        help_text='Введите подробное описание группы'
     )
 
     def __str__(self) -> str:
         return self.title
+
+    class Meta:
+        verbose_name = 'группы публикаций'
+        verbose_name_plural = 'Группы публикаций'
 
 
 TEXT_LENGHT: int = 15
@@ -54,6 +58,8 @@ class Post(models.Model):
 
     class Meta:
         ordering = ['-pub_date']
+        verbose_name = 'публикации'
+        verbose_name_plural = 'Публикации'
 
     def __str__(self):
         return self.text[:TEXT_LENGHT]
